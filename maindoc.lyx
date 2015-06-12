@@ -73,5 +73,15 @@ this is the main doc.
  here we write the main stuff.
 \end_layout
 
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand include
+filename "Chapter1/Chapter 1.lyx"
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
