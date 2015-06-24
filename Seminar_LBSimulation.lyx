@@ -1,0 +1,698 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+% use the autoreferencing option in order to have figures and tables referenced in text as Figure xx. or Table xx. 
+% when they are set as Format <reference>
+\AtBeginDocument{%
+\let\ref\autoref
+\renewcommand\equationautorefname{\@gobble}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyhead[L]{\slshape \leftmark}
+\fancyhead[R]{\thepage}
+\fancyfoot[L]{From: B. Barbu}
+\fancyfoot[R]{version 1}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage[hang,splitrule]{footmisc}
+\addtolength{\footskip}{0.5cm}
+\setlength{\footnotemargin}{0.3cm}
+\setlength{\footnotesep}{0.4cm} 
+
+% spec­i­fies the nom­i­nal dis­tance be­tween con­sec­u­tive base­lines of type­set text
+% it has been used in a TEX command field before \printglossaries in order to reduce the space 
+% between the entries in the List of Acronyms and List of Symbols
+\usepackage{leading}
+
+% cap­tion pack­age pro­vides many ways to cus­tomise the cap­tions in float­ing en­vi­ron­ments like fig­ure and ta­ble
+% used in order to change the caption format and font for images and tables
+\usepackage{caption}
+\captionsetup[table]{margin=1pt,font=normalsize,labelfont=bf,  labelsep=period, singlelinecheck=false, format=plain, justification=raggedright}
+\captionsetup[figure]{margin=1pt,font=normalsize,labelfont=bf, labelsep=period, singlelinecheck=false, format=plain, justification=raggedright, indention=2.5cm}
+
+% used in order to type numerical values with units in text
+\usepackage{siunitx}
+
+
+% settings used in order to have a better text layout and make the text easier to read
+\clubpenalty10000 %Penalty for a broken page, with a single line of a paragraph remaining on the bottom of the preceding page.
+\widowpenalty10000 %Penalty for a broken page, with a single line of a paragraph (called "widow") remaining on the top of the succeeding page.
+\raggedbottom %makes all pages the height of the text on that page. No extra vertical space is added.
+
+\hyphenation{run-time real-time wave-guide des-crip-tion de-cre-sing Fett-weis}
+
+\pretolerance 900 % used for TeX paragraph line breaking algorithm
+\tolerance 1414 % used for TeX paragraph line breaking algorithm
+\hbadness 1414 % used for TeX paragraph line breaking algorithm
+\emergencystretch 1.5em % s added to the assumed stretchability of every line when badness and demerits are computed, in cases where overfull boxes are otherwise unavoidable.
+\hfuzz 0.3pt % A parameter that allows hbox's to be overfull by [length] before an overfull error occurs.
+\vfuzz \hfuzz
+\relpenalty=9999 % prevent line breaking inline formulas (except only the most extreme cases)
+\binoppenalty=9999 % prevent line breaking inline formulas (except only the most extreme cases)
+
+% create a list of Glossaries (Abbreviations and Symbols)
+%\usepackage[nonumberlist, acronym]{glossaries}
+%\usepackage[nonumberlist]{glossaries}
+%\setglossarystyle{super}
+%\loadglsentries{PozeAndLiterature_Raport11/Acronyms.tex} % load the Abbreviations from a given text file
+%\makenoidxglossaries
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 1
+\output_sync_macro "\synctex=-1"
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen true
+\pdf_bookmarksopenlevel 3
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref false
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=blue, urlcolor=marineblue, citecolor=blue"
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Electric Arc Simulation using Matlab/Simulink
+\end_layout
+
+\begin_layout Author
+Prof.
+ Dr.-Ing Frank Berger
+\begin_inset Newline newline
+\end_inset
+
+Dipl.-Ing.
+ Bogdan Barbu 
+\begin_inset Newline newline
+\end_inset
+
+Dipl.-Wirtsch.-Ing.
+ Matthias Streck 
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\end_layout
+
+\begin_layout Standard
+The purpose of the “Electric Arc Simulation” Seminar is to offer the students
+ an overview regarding the field of electric arc simulation.
+ The general term of Electric Arc Simulation can define a plenitude of mathemati
+cal models that have been developed over the years in order to understand,
+ build and improve the arc extinguishing process in switching devices.
+ The arc mathematical models can be separated in two main categories according
+ to their main purpose: 
+\end_layout
+
+\begin_layout Standard
+- “Black-box” (sometimes refereed as Conductance models): where the electric
+ arc is regarded as an network element and its interaction with the electrical
+ network is analyzed; 
+\end_layout
+
+\begin_layout Standard
+- Physical Models: that regard in detail the physic of the discharge and
+ the interaction between different physical factors that play a role in
+ the arc maintenance or extinguishing.
+ 
+\end_layout
+
+\begin_layout Standard
+From the first type of simulation models, well-known are the models developed
+ by Cassie 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "Cas39"
+
+\end_inset
+
+ and Mayr 
+\begin_inset CommandInset citation
+LatexCommand citet
+key "May43b"
+
+\end_inset
+
+.
+ These models have simple physical assumptions and offer simple mathematical
+ representations, using fitting parameters, of the complex discharge phenomena
+ taking place into a switching device.
+ Their purpose is to recreate the voltage-current arc characteristics that
+ can be further used in a network analysis.
+ This is a very important point for electric devices developers as well
+ as for the electric network developers because by means of this models
+ the over-current and over-voltage that can stress the electrical can be
+ approximated.
+ Some authors use in their mathematical formulation certain physical arc
+ parameters in order to improve the originally constant parameters (e.g.
+ arc power losses) but still the real arc physics is nowhere near described
+ by these equations.
+ In order to recreate the physics of an arc discharge the second type of
+ models are always used.
+ These models are based on the fluid-dynamic conservation laws, e.g.
+ Navier-Stockes equations, coupled with the Maxwell equations used to describe
+ the electromagnetic effects produced by the electric current.
+ Due to their mathematical formulation and complexity, these models are
+ not used up to the present in conjunction with network analysis software
+ and their main purpose resides only into giving a good representation of
+ the arc formation, movement and extinguishing into a circuit breaker.
+ 
+\end_layout
+
+\begin_layout Standard
+This document presents an approach that can be used in order to implement
+ the “Black-box”/Conductance arc model developed by Mayr.
+ A similar approach can be used in order to implement other 
+\begin_inset Quotes eld
+\end_inset
+
+Black-Box
+\begin_inset Quotes erd
+\end_inset
+
+ models (e.g Cassie).
+ In order to keep a clear description of this document, from this point
+ on, any reference to a mathematical model will be a direct reference to
+ a “Black-box” model even if this is not directly specified.
+ The current document is organized as it follows: in Chapter 2 a quick overview
+ of the equations used in a 
+\begin_inset Quotes eld
+\end_inset
+
+Black-box
+\begin_inset Quotes erd
+\end_inset
+
+ model will be given.
+ In Chapter 3, we will introduce the 
+\shape italic
+Matlab/Simulink
+\shape default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+for this example it was used Matlab 2012a.
+ By using a different Matlab version differences between the input methods,
+ Libraries location or Element/Block structure may occur.
+ 
+\end_layout
+
+\end_inset
+
+ Libraries and Elements that are mainly used during the development of a
+ simulation model.
+ The practical part of this Seminar, namely the buildup of a real electrical
+ network including an electric arc model, will be presented in Chapter 4.
+ In Chapter 5, the results obtained in the previous step will be discussed
+ together with the students followed by a parameter variation of the electric
+ arc model as well as of the electrical network that the students must perform
+ and discuss on their own.
+ 
+\end_layout
+
+\begin_layout Chapter
+Mathematics of the “Black-box” models 
+\end_layout
+
+\begin_layout Standard
+From the electric point of view, the “Black-box” models regard the arc as
+ a two-pole nonlinear resistive element.
+ This behavior is represented by the Voltage-Current characteristic of the
+ arc that offers a macroscopic description of the switching process taking
+ place inside the switching device.
+ All the models studied here are represented by an Ordinary Differential
+ Equation (ODE) and are based on the simple models developed by Mayr and
+ Cassie.
+ Both of these ground models consider as a state variable for the differential
+ equation the electric arc conductance and for this reason in some books
+ they can be found under the name of Conductance Models.
+ The theoretical description of the two main models, that are also the most
+ basic ones, will be given in the following points.
+ 
+\end_layout
+
+\begin_layout Section
+General assumptions
+\end_layout
+
+\begin_layout Standard
+The mathematical description of both researchers is based on a series of
+ simple physical assumptions based on 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Energy Balance Equation"
+
+\end_inset
+
+.
+ The equation states that the power brought into the electric arc equals
+ the power losses from the arc plus a certain amount of power that is stored
+ into the arc column.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+P_{IN}=P_{OUT}+P_{STORED}\label{eq:Energy Balance Equation}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The input power represents, in this case, the product between the network
+ voltage and the current flowing through the arc (
+\begin_inset Formula $P_{IN}=u\, i$
+\end_inset
+
+), while the power stored in the arc column can be seen as an energy change
+ over time (
+\begin_inset Formula $P_{STORED}=dQ/dt$
+\end_inset
+
+).
+ Further, it may be assumed that the stored energy produces a change in
+ the arc physical parameters (e.g.
+ electric conductivity).
+ This leads to a change in the arc conductance as a function of the arc
+ stored energy:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G=G(Q)=G\left(\int(P_{IN}-P_{OUT})dt\right)\label{eq:Arc conductance as function of stored energy}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By deriving 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Arc conductance as function of stored energy"
+
+\end_inset
+
+ with respect to time and multiplying by 
+\begin_inset Formula $1/G$
+\end_inset
+
+ we obtain:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{G}\frac{dG}{dt}=\frac{1}{G}\frac{dG(Q)}{dt}=\frac{1}{G}\frac{dG}{dQ}\frac{dQ}{dt}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{G}\frac{dG}{dt}=\frac{1}{G}\frac{dG}{dQ}\left(P_{IN}-P_{OUT}\right)\label{eq:Energy Balance as function of Arc Conductance}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Energy Balance as function of Arc Conductance"
+
+\end_inset
+
+ describes the arc energy balance through a differential equation that considers
+: the energy input, output and the changes brought by the stored energy
+ on the arc electrical conductance over time.
+ This equation represents the ground form of the all 
+\begin_inset Quotes eld
+\end_inset
+
+Black-Box
+\begin_inset Quotes erd
+\end_inset
+
+ models and depending how the terms in this equation are considered different
+ 
+\begin_inset Quotes eld
+\end_inset
+
+Black-Box
+\begin_inset Quotes erd
+\end_inset
+
+ models were developed.
+\end_layout
+
+\begin_layout Section
+Description of the Cassie arc model 
+\end_layout
+
+\begin_layout Standard
+In order to create a mathematical description of the switching process,
+ Cassie assumed that the
+\shape italic
+ energy losses
+\shape default
+ 
+\begin_inset Formula $(P_{OUT}$
+\end_inset
+
+) 
+\shape italic
+are done entirely by
+\shape default
+ 
+\shape italic
+convection 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+
+\shape italic
+(insert figure with convection )
+\end_layout
+
+\end_inset
+
+.
+ 
+\shape default
+Indirectly,
+\shape italic
+ 
+\shape default
+this assumption implies that up to the power sink location, e.g.
+ the arc surface, there is a constant heat distribution produced by the
+ power input 
+\begin_inset Formula $(P_{IN}$
+\end_inset
+
+).
+ As follows, the temperature distribution, current distribution and arc
+ parameters are constant and the following equation is verified:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G=f(Q)=ct\label{eq:Cassie Assumption}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+By replacing 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Cassie Assumption"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Energy Balance as function of Arc Conductance"
+
+\end_inset
+
+ and considering 
+\begin_inset Formula $P_{IN}=u^{2}G$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{OUT}=u_{a}^{2}G$
+\end_inset
+
+, the following equation is obtained: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{G}\frac{dG}{dt}=\frac{1}{G}\frac{G}{Q}(u^{2}G-u_{a}^{2}G)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{G}\frac{dG}{dt}=\frac{G}{Q}u_{a}^{2}\left(\frac{u^{2}}{u_{a}^{2}}-1\right)=\frac{G}{Q}\frac{P_{OUT}}{G}\left(\frac{u^{2}}{u_{a}^{2}}-1\right)
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{1}{G}\frac{dG}{dt}=\frac{1}{\tau_{a}}\left(\frac{u^{2}}{u_{a}^{2}}-1\right)\label{eq:CassieEq}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\tau=Q/P_{OUT}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Section
+Description of the Mayr arc model 
+\end_layout
+
+\begin_layout Standard
+In the Mayr model the electric arc is regarded as having a cylindrical column
+ with a constant diameter.
+ In this model 
+\shape italic
+the energy losses 
+\shape default
+
+\begin_inset Formula $(P_{OUT}$
+\end_inset
+
+) 
+\shape italic
+are considered to be only due to thermal conduction effects
+\shape default
+.
+ By using this approximation the author implies that the temperature distributio
+n inside the arc column is not constant and follows a distribution given
+ by the amount of energy input (
+\begin_inset Formula $T=f(Q)$
+\end_inset
+
+).
+ The temperature distribution will have as a consequence a change in the
+ plasma physical properties (e.g.
+ electrical conductivity 
+\begin_inset Formula $\sigma$
+\end_inset
+
+).
+ Thus, the resulting arc conductance will be a function of the energy input
+ given by 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ConductivityEq"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G=Ke^{^{(Q/Q_{0})}}\label{eq:ConductivityEq}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $K$
+\end_inset
+
+ and 
+\begin_inset Formula $Q_{0}$
+\end_inset
+
+ are constants.
+ By replacing 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:ConductivityEq"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Energy Balance as function of Arc Conductance"
+
+\end_inset
+
+ and after a few rearrangements the final form of the Mayr differential
+ equation 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:MayrEq"
+
+\end_inset
+
+ for the electric arc will be obtained: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\frac{d\, lnG}{dt}=\frac{1}{\tau}\left(\frac{u_{a}i}{P_{0}}-1\right)\label{eq:MayrEq}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\tau=Q_{0}/P_{\text{0}}$
+\end_inset
+
+ represents the electric arc time constant.
+ 
+\end_layout
+
+\begin_layout Standard
+In this model, 
+\begin_inset Formula $\tau$
+\end_inset
+
+ and 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ are free parameters and must be determined experimentally.
+ The simulation model will regard these parameters as input variables.
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "References/LBSimulation_Seminar"
+options "amsalpha"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
